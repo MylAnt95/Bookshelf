@@ -1,7 +1,7 @@
 <?php
 
 $books = [
-    'The Silver Serpent' => [
+    'Silver Serpent' => [
         'id' => '12345',
         'author' => 'Frank Novelist',
         'color' => 'Silver',
@@ -19,7 +19,7 @@ $books = [
         'color' => 'Green',
         'genre' => 'Romance'
     ],
-    'The Golden Key' => [
+    'Golden Key' => [
         'id' => '89797',
         'author' => 'Isabel Storyteller',
         'color' => 'Yellow',
@@ -33,11 +33,11 @@ $books = [
     ],
     'Scarlet Secrets' => [
         'id' => '56341',
-        'author' => 'Katherine Novelist',
+        'author' => 'Karine Novelist',
         'color' => 'Red',
         'genre' => 'Mystery'
     ],
-    'The Bronze Blade' => [
+    'Bronze Blade' => [
         'id' => '32545',
         'author' => 'Liam Writer',
         'color' => 'Bronze',
@@ -49,7 +49,7 @@ $books = [
         'color' => 'Purple',
         'genre' => 'Crime'
     ],
-    'The Enchanted Forest' => [
+    'Enchanted Forest' => [
         'id' => '23564',
         'author' => 'Nathan Storyteller',
         'color' => 'Green',
@@ -61,7 +61,7 @@ $books = [
         'color' => 'Red',
         'genre' => 'Romance'
     ],
-    'The Midnight Murders' => [
+    'Midnight Murders' => [
         'id' => '32675',
         'author' => 'Patrick Novelist',
         'color' => 'Black',

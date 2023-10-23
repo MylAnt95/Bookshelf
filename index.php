@@ -2,23 +2,37 @@
 require __DIR__ . '/functions.php';
 require __DIR__ . '/books.php';
 
-/* $titles = [];
-foreach ($books as $book => $data) {
-    $titles[] = $data['title'];
-}
+$titles = [];
+$author = [];
+foreach ($books as $book => $data) :
+    $titles[] = $book;
+    $author[] = $data['author'];
+endforeach;
+
 if (isset($_GET['direction'])) {
-    if ($_GET['direction'] === 'asc') {
-        $_GET['direction'] = sort($titles);
-    } elseif ($_GET['direction'] === 'desc') {
-        $_GET['direction'] = rsort($titles);
+    $direction = $_GET['direction'];
+    switch ($direction) {
+        case $direction === 'asc':
+            ksort($books);
+            break;
+        case $direction === 'desc':
+            krsort($books);
+            break;
+        case $direction === 'authorasc':
+            sort($author);
+            break;
+        case $direction === 'authordesc':
+            rsort($author);
+            break;
     }
-} */
+}
 
 
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,8 +47,10 @@ if (isset($_GET['direction'])) {
     <div class="dropdown">
         <button class="dropbtn">Sort by</button>
         <div class="dropdown-content">
-            <a href="?direction=asc">ASC</a>
-            <a href="?direction=desc">DESC</a>
+            <a href="?direction=asc">Title ASC</a>
+            <a href="?direction=desc">Title DESC</a>
+            <a href="?direction=authorasc">Author ASC</a>
+            <a href="?direction=authordesc">Author DESC</a>
         </div>
     </div>
     <div class="shelf">
