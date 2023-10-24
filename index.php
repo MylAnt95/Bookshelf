@@ -12,17 +12,17 @@ endforeach;
 if (isset($_GET['direction'])) {
     $direction = $_GET['direction'];
     switch ($direction) {
-        case $direction === 'asc':
+        case 'asc':
             ksort($books);
             break;
-        case $direction === 'desc':
+        case 'desc':
             krsort($books);
             break;
         case $direction === 'authorasc':
-            sort($author);
+            array_multisort($author, SORT_ASC, $books);
             break;
         case $direction === 'authordesc':
-            rsort($author);
+            array_multisort($author, SORT_DESC, $books);
             break;
     }
 }
@@ -41,9 +41,6 @@ if (isset($_GET['direction'])) {
     <title>Bookshelf</title>
 </head>
 <nav>
-</nav>
-
-<body>
     <div class="dropdown">
         <button class="dropbtn">Sort by</button>
         <div class="dropdown-content">
@@ -53,15 +50,20 @@ if (isset($_GET['direction'])) {
             <a href="?direction=authordesc">Author DESC</a>
         </div>
     </div>
-    <div class="shelf">
-        <?php foreach ($books as $book => $bookData) : ?>
-            <div class="book">
-                <h4 class="book-title"><?= $book; ?></h4>
-                <p class="book-id"><?= $bookData['id']; ?></p>
-                <p class="book-author"><?= $bookData['author']; ?></p>
-                <p class="book-genre"><?= $bookData['genre']; ?></p>
-            </div>
-        <?php endforeach; ?>
+</nav>
+<body>
+    <div class="wrapper">
+        <div class="shelf">
+            <?php foreach ($books as $book => $bookData) : ?>
+                <div class="book">
+                    <h4 class="book-title"><?= $book; ?></h4>
+                    <p class="book-genre"><?= $bookData['released']; ?></p>
+                    <p class="book-author"><?= $bookData['author']; ?></p>
+                    <p class="book-genre"><?= $bookData['genre']; ?></p>
+                    <p class="book-id"><?= $bookData['id']; ?></p>
+                </div>
+            <?php endforeach; ?>
+        </div>
     </div>
 </body>
 

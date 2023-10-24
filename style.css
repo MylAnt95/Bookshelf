@@ -6,6 +6,9 @@ body {
   margin: 0;
   width: 900px;
 }
+.wrapper {
+  margin: 15px;
+}
 
 /* Dropdown Button */
 .dropbtn {
@@ -63,6 +66,7 @@ body {
 }
 .book {
   border: 1px solid;
-  width: 120px;
+  width: 140px;
+  height: 252px;
   padding: 8px;
 }
