@@ -10,35 +10,38 @@ foreach ($books as $book => $data) :
 endforeach;
 
 $sortedBooks = $books;
-if (isset($_GET['direction'])) {
-    $direction = $_GET['direction'];
 
-    foreach ($direction as $selected) {
-        switch ($selected) {
-            case 'asc':
-                ksort($sortedBooks);
-                break;
-            case 'desc':
-                krsort($sortedBooks);
-                break;
-            case 'authorasc':
-                array_multisort($author, SORT_ASC, $sortedBooks);
-                break;
-            case 'authordesc':
-                array_multisort($author, SORT_DESC, $sortedBooks);
-                break;
-            case 'releaseasc':
-                array_multisort($release, SORT_ASC, $sortedBooks);
-                break;
-            case 'releasedesc':
-                array_multisort($release, SORT_DESC, $sortedBooks);
-                break;
+if (isset($_GET['sort'])) {
+    if (isset($_GET['direction'])) {
+        $direction = $_GET['direction'];
+    
+        foreach ($direction as $selected) {
+            switch ($selected) {
+                case 'asc':
+                    ksort($sortedBooks);
+                    break;
+                case 'desc':
+                    krsort($sortedBooks);
+                    break;
+                case 'authorasc':
+                    array_multisort($author, SORT_ASC, $sortedBooks);
+                    break;
+                case 'authordesc':
+                    array_multisort($author, SORT_DESC, $sortedBooks);
+                    break;
+                case 'releaseasc':
+                    array_multisort($release, SORT_ASC, $sortedBooks);
+                    break;
+                case 'releasedesc':
+                    array_multisort($release, SORT_DESC, $sortedBooks);
+                    break;
+            }
         }
     }
 }
 
 $matches = [];
-if (isset($_GET['name'])) {
+if (isset($_GET['search'])) {
     $searchKey = '/' . $_GET['name'] . '/i';
     foreach ($books as $book => $bookData) {
         foreach ($bookData as $details) {
@@ -50,7 +53,6 @@ if (isset($_GET['name'])) {
                 preg_match($searchKey, $bookData['released'])
             ) {
                 $matches[] = $book;
-                break 2;
             }
         }
     }
@@ -106,13 +108,13 @@ if (isset($_GET['name'])) {
                         <input type="checkbox" name="direction[]" value="releasedesc">
                         <span class="checkmark"></span>
                     </label>
-                    <button class="sort-button" type="submit">SORT</button>
+                    <button class="sort-button" type="submit" name="sort">SORT</button>
                 </div>
             </div>
             <div class="search">
                 <form class="search-form" action="index.php" method="get">
                     <input type="text" name="name">
-                    <button type="submit">Search</button>
+                    <button type="submit" name="search">Search</button>
                 </form>
                 <a class="clear" href="/index.php">Clear</a>
             </div>
