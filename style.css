@@ -32,7 +32,8 @@ form {
   background-color: rgb(22, 151, 22);
   border: none;
   font-weight: bold;
-  width: 200px;
+  width: 100%;
+  padding: 8px;
 }
 button:hover {
   background-color: white;
@@ -51,24 +52,23 @@ input {
 .shelf {
   display: flex;
   justify-content: center;
+  align-items: end;
   flex-wrap: wrap;
   width: 799px;
   padding-top: 10px;
 }
 
 .shelf-1 {
-  background-color: rgb(152, 91, 91);
   border-top: 5px solid brown;
   border-right: 5px solid brown;
   border-left: 5px solid brown;
 }
 .shelf-2 {
-  background-color: rgb(152, 91, 91);
   border: 5px solid brown;
 }
 .legs {
-  border-right: 5px solid brown;
-  border-left: 5px solid brown;
+  border-right: 8px solid brown;
+  border-left: 8px solid brown;
   height: 30px;
 }
 
@@ -76,8 +76,29 @@ input {
   border: 1px solid;
   width: 100px;
   height: 252px;
-  padding: 8px;
   border-radius: 4px;
+  text-align: center;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+.book:hover {
+  transform: scale(1.32);
+}
+.book-title {
+  margin-bottom: 1px;
+  border-bottom: 1px solid black;
+}
+.book-year {
+  font-style: italic;
+}
+.book-id {
+  font-size: xx-small;
+}
+.book-author {
+  font-size: xx-small;
+}
+
+.book-result {
+  display: none;
 }
 
 /* Style for the dropdown container */
@@ -97,7 +118,7 @@ input {
   display: none;
   position: absolute;
   background-color: #f9f9f9;
-  min-width: 200px;
+  width: 148px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
 }
 
@@ -114,7 +135,8 @@ label.sort {
 
 /* Style for the checkboxes input */
 label.sort input {
-  margin-right: 10px;
+  position: absolute;
+  right: 0;
 }
 
 .search {
@@ -122,4 +144,13 @@ label.sort input {
   align-content: center;
   justify-content: center;
   margin-left: 20px;
+}
+.clear {
+  text-decoration: none;
+  align-self: center;
+  margin-left: 5px;
+  color: #f9f9f9;
+}
+.clear:hover {
+  color: black;
 }

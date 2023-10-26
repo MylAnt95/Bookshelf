@@ -7,6 +7,7 @@ $books = [
         'color' => 'Silver',
         'genre' => 'Fantasy',
         'released' => '1922',
+        'height' => '248px',
     ],
     'Crimson Moonrise' => [
         'id' => '54321',
@@ -14,6 +15,7 @@ $books = [
         'color' => 'Red',
         'genre' => 'Mystery',
         'released' => '1955',
+        'height' => '220px',
     ],
     'Emerald Echoes' => [
         'id' => '67890',
@@ -21,6 +23,7 @@ $books = [
         'color' => 'Green',
         'genre' => 'Romance',
         'released' => '1912',
+        'height' => '240px',
     ],
     'Golden Key' => [
         'id' => '89797',
@@ -28,6 +31,7 @@ $books = [
         'color' => 'Yellow',
         'genre' => 'Adventure',
         'released' => '1992',
+        'height' => '248px',
     ],
     'Sapphire Shadows' => [
         'id' => '23556',
@@ -35,6 +39,7 @@ $books = [
         'color' => 'Blue',
         'genre' => 'Thriller',
         'released' => '1998',
+        'height' => '248px',
     ],
     'Scarlet Secrets' => [
         'id' => '56341',
@@ -42,6 +47,7 @@ $books = [
         'color' => 'Red',
         'genre' => 'Mystery',
         'released' => '2008',
+        'height' => '242px',
     ],
     'Bronze Blade' => [
         'id' => '32545',
@@ -49,6 +55,7 @@ $books = [
         'color' => 'teal',
         'genre' => 'Historical Fiction',
         'released' => '2010',
+        'height' => '225px',
     ],
     'Violet Vendetta' => [
         'id' => '93275',
@@ -56,6 +63,7 @@ $books = [
         'color' => 'Purple',
         'genre' => 'Crime',
         'released' => '1988',
+        'height' => '220px',
     ],
     'Enchanted Forest' => [
         'id' => '23564',
@@ -63,13 +71,15 @@ $books = [
         'color' => 'Green',
         'genre' => 'Fantasy',
         'released' => '1988',
+        'height' => '241px',
     ],
-    'Ruby Redemption' => [
+    'Ruby Redem' => [
         'id' => '12456',
         'author' => 'Olivia Author',
         'color' => 'Red',
         'genre' => 'Romance',
         'released' => '1942',
+        'height' => '237px',
     ],
     'Midnight Murders' => [
         'id' => '32675',
@@ -77,6 +87,7 @@ $books = [
         'color' => 'navy',
         'genre' => 'Mystery',
         'released' => '2002',
+        'height' => '244px',
     ],
     'Aqua Odyssey' => [
         'id' => '65488',
@@ -84,6 +95,7 @@ $books = [
         'color' => 'Aqua',
         'genre' => 'Adventure',
         'released' => '2014',
+        'height' => '244px',
     ],
     'Copper Chronicles' => [
         'id' => '23298',
@@ -91,6 +103,7 @@ $books = [
         'color' => 'violet',
         'genre' => 'Fantasy',
         'released' => '2020',
+        'height' => '223px',
     ],
     'Topaz Treasures' => [
         'id' => '53489',
@@ -98,5 +111,6 @@ $books = [
         'color' => 'Orange',
         'genre' => 'Adventure',
         'released' => '2019',
+        'height' => '210px',
     ]
 ];

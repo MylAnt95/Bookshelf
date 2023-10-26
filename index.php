@@ -37,6 +37,25 @@ if (isset($_GET['direction'])) {
     }
 }
 
+$matches = [];
+if (isset($_GET['name'])) {
+    $searchKey = '/' . $_GET['name'] . '/i';
+    foreach ($books as $book => $bookData) {
+        foreach ($bookData as $details) {
+            if (
+                preg_match($searchKey, $book) ||
+                preg_match($searchKey, $bookData['author']) ||
+                preg_match($searchKey, $bookData['id']) ||
+                preg_match($searchKey, $bookData['genre']) ||
+                preg_match($searchKey, $bookData['released'])
+            ) {
+                $matches[] = $book;
+                break 2;
+            }
+        }
+    }
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,13 +111,15 @@ if (isset($_GET['direction'])) {
             </div>
             <div class="search">
                 <form class="search-form" action="index.php" method="get">
-                    <input type="text">
+                    <input type="text" name="name">
                     <button type="submit">Search</button>
                 </form>
+                <a class="clear" href="/index.php">Clear</a>
             </div>
         </form>
     </div>
 </nav>
+
 <body>
     <div class="wrapper">
         <div class="shelf shelf-1">
@@ -107,10 +128,11 @@ if (isset($_GET['direction'])) {
             $booksDisplayed = 0;
 
             foreach ($sortedBooks as $book => $bookData) {
-                if ($booksDisplayed < 7) { ?>
-                    <div class="book" style="background-color: <?=$bookData['color']?>;">
+                if ($booksDisplayed < 7) { 
+                    $bookStyle = in_array($book, $matches) ? "transform: scale(1.32);" : '';?>
+                    <div class="book" style="<?= $bookStyle ?> background-color: <?= $bookData['color'] ?>; height: <?= $bookData['height'] ?>;">
                         <h4 class="book-title"><?= $book; ?></h4>
-                        <p class="book-genre"><?= $bookData['released']; ?></p>
+                        <p class="book-year"><?= $bookData['released']; ?></p>
                         <p class="book-author"><?= $bookData['author']; ?></p>
                         <p class="book-genre"><?= $bookData['genre']; ?></p>
                         <p class="book-id"><?= $bookData['id']; ?></p>
@@ -125,10 +147,11 @@ if (isset($_GET['direction'])) {
             <?php
             $booksDisplayed = 0;
             foreach ($sortedBooks as $book => $bookData) {
-                if ($booksDisplayed >= 7) { ?>
-                    <div class="book" style="background-color: <?=$bookData['color']?>;">
+                if ($booksDisplayed >= 7) { 
+                    $bookStyle = in_array($book, $matches) ? "transform: scale(1.32);" : ''; ?>
+                    <div class="book" style="<?= $bookStyle ?> background-color: <?= $bookData['color'] ?>; height: <?= $bookData['height'] ?>;">
                         <h4 class="book-title"><?= $book; ?></h4>
-                        <p class="book-genre"><?= $bookData['released']; ?></p>
+                        <p class="book-year"><?= $bookData['released']; ?></p>
                         <p class="book-author"><?= $bookData['author']; ?></p>
                         <p class="book-genre"><?= $bookData['genre']; ?></p>
                         <p class="book-id"><?= $bookData['id']; ?></p>
