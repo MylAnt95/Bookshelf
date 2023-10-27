@@ -14,7 +14,7 @@ $sortedBooks = $books;
 if (isset($_GET['sort'])) {
     if (isset($_GET['direction'])) {
         $direction = $_GET['direction'];
-    
+
         foreach ($direction as $selected) {
             switch ($selected) {
                 case 'asc':
@@ -86,27 +86,21 @@ if (isset($_GET['search'])) {
                 <div class="checkboxes">
                     <label class="sort">Title ASC
                         <input type="checkbox" name="direction[]" value="asc">
-                        <span class="checkmark"></span>
                     </label>
                     <label class="sort">Title DESC
                         <input type="checkbox" name="direction[]" value="desc">
-                        <span class="checkmark"></span>
                     </label>
                     <label class="sort">Author ASC
                         <input type="checkbox" name="direction[]" value="authorasc">
-                        <span class="checkmark"></span>
                     </label>
                     <label class="sort">Author DESC
                         <input type="checkbox" name="direction[]" value="authordesc">
-                        <span class="checkmark"></span>
                     </label>
                     <label class="sort">Release ASC
                         <input type="checkbox" name="direction[]" value="releaseasc">
-                        <span class="checkmark"></span>
                     </label>
                     <label class="sort">Release DESC
                         <input type="checkbox" name="direction[]" value="releasedesc">
-                        <span class="checkmark"></span>
                     </label>
                     <button class="sort-button" type="submit" name="sort">SORT</button>
                 </div>
@@ -130,8 +124,8 @@ if (isset($_GET['search'])) {
             $booksDisplayed = 0;
 
             foreach ($sortedBooks as $book => $bookData) {
-                if ($booksDisplayed < 7) { 
-                    $bookStyle = in_array($book, $matches) ? "transform: scale(1.32);" : '';?>
+                if ($booksDisplayed < 7) {
+                    $bookStyle = in_array($book, $matches) ? "transform: scale(1.32);" : ''; ?>
                     <div class="book" style="<?= $bookStyle ?> background-color: <?= $bookData['color'] ?>; height: <?= $bookData['height'] ?>;">
                         <h4 class="book-title"><?= $book; ?></h4>
                         <p class="book-year"><?= $bookData['released']; ?></p>
@@ -149,7 +143,7 @@ if (isset($_GET['search'])) {
             <?php
             $booksDisplayed = 0;
             foreach ($sortedBooks as $book => $bookData) {
-                if ($booksDisplayed >= 7) { 
+                if ($booksDisplayed >= 7) {
                     $bookStyle = in_array($book, $matches) ? "transform: scale(1.32);" : ''; ?>
                     <div class="book" style="<?= $bookStyle ?> background-color: <?= $bookData['color'] ?>; height: <?= $bookData['height'] ?>;">
                         <h4 class="book-title"><?= $book; ?></h4>
